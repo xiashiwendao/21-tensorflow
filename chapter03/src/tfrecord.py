@@ -75,6 +75,9 @@ def _int64_feature(value):
 
 def _bytes_feature(value):
     """Wrapper for inserting bytes features into Example proto."""
+    print("value值是: ", value)
+    if(type(value) is not bytes):
+      value = value.encode("utf8")
     return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
 
 
